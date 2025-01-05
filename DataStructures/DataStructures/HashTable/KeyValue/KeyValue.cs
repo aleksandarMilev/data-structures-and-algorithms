@@ -1,5 +1,7 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.HashTable.KeyValue
 {
+    using System;
+
     public class KeyValue<TKey, TValue>
         where TKey : IComparable
         where TValue : IComparable

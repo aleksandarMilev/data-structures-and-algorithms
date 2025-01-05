@@ -1,8 +1,9 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.HashTable
 {
+    using System;
     using System.Collections;
-
-    using DataStructuresAndAlgorithms.DataStructures.HashTable.KeyValue;
+    using System.Collections.Generic;
+    using KeyValue;
 
     public class MyDictionary<TKey, TValue> : IMyDictionary<TKey, TValue>
         where TKey : IComparable

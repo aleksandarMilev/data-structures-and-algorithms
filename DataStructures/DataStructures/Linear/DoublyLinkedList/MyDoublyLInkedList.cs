@@ -1,6 +1,8 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Linear.DoublyLinkedList
 {
+    using System;
     using System.Collections;
+    using System.Collections.Generic;
 
     public class MyDoublyLInkedList<T> : IMyDoublyLinkedList<T>
     {

@@ -1,5 +1,8 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Graph
 {
+    using System;
+    using System.Collections.Generic;
+
     class AdjacencyGraph<T> : IAdjacencyGraph<T>
          where T : notnull, IComparable
     {

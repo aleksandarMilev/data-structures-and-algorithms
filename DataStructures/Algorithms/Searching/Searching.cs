@@ -1,5 +1,8 @@
 ﻿namespace DataStructures.Algorithms.Searching
 {
+    using System;
+    using System.Collections.Generic;
+
     public static class Searching
     {
         public static bool SearchLinear<T>(this IEnumerable<T> collection, T element) 

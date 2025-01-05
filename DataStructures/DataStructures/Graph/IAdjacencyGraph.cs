@@ -1,5 +1,8 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Graph
 {
+    using System;
+    using System.Collections.Generic;
+
     public interface IAdjacencyGraph<T>
     {
         void Add(T edge, List<T> adjacenciesToAdd);

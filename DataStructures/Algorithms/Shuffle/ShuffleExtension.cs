@@ -1,5 +1,7 @@
 ﻿namespace DataStructures.Algorithms.Shuffle
 {
+    using System;
+
     public static class ShuffleExtension
     {
         public static void Shuffle(this int[] arr) 

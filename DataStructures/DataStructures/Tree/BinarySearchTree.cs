@@ -1,5 +1,8 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Tree
 {
+    using System;
+    using System.Collections.Generic;
+
     public class BinarySearchTree<T> 
         where T : IComparable<T>
     {

@@ -1,5 +1,7 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Linear.CircularQueue
 {
+    using System.Collections.Generic;
+
     public interface IMyCircularQueue<T> : IEnumerable<T>
     {
         int Count { get; }
