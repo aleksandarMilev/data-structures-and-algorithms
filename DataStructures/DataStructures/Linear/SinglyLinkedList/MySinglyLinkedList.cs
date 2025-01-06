@@ -4,14 +4,19 @@
     using System.Collections;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Represents a singly linked list.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
     public class MySinglyLinkedList<T> : IMySinglyLinkedList<T>
     {
-        public class Node
+        private class Node
         {
             public Node(T element) => this.Element = element;
 
-            public T Element { get; set; }
-            public Node? Next { get; set; }
+            public T Element { get; init; }
+
+            public Node? Next { get; internal set; }
         }
 
         private Node? head;
@@ -24,10 +29,9 @@
             var newNode = new Node(element);
             this.Count++;
 
-            if (this.head == null)
+            if (this.head is null)
             {
-                this.head = newNode;
-                this.tail = newNode;
+                this.SetHeadAndTail(newNode);
                 return;
             }
 
@@ -40,10 +44,9 @@
             var newNode = new Node(element);
             this.Count++;
 
-            if (this.tail == null)
+            if (this.tail is null)
             {
-                this.head = newNode;
-                this.tail = newNode;
+                this.SetHeadAndTail(newNode);
                 return;
             }
 
@@ -53,7 +56,7 @@
 
         public T RemoveFirst()
         {
-            if (this.head == null)
+            if (this.head is null)
             {
                 throw new InvalidOperationException("The list is empty.");
             }
@@ -61,7 +64,7 @@
             var returnValue = this.head.Element;
             this.head = this.head.Next;
 
-            if (this.head == null)
+            if (this.head is null)
             {
                 this.tail = null;
             }
@@ -72,19 +75,18 @@
 
         public T RemoveLast()
         {
-            if (this.head == null)
+            if (this.head is null)
             {
                 throw new InvalidOperationException("The list is empty.");
             }
 
             this.Count--;
-            T returnValue = default!;
+            T returnValue;
 
             if (this.head == this.tail)
             {
                 returnValue = this.head.Element;
-                this.head = null;
-                this.tail = null;
+                this.SetHeadAndTail(null);
 
                 return returnValue;
             }
@@ -105,7 +107,7 @@
 
         public T GetFirst()
         {
-            if (this.head == null)
+            if (this.head is null)
             {
                 throw new InvalidOperationException("The list is empty.");
             }
@@ -115,7 +117,7 @@
 
         public T GetLast()
         {
-            if (this.tail == null)
+            if (this.tail is null)
             {
                 throw new InvalidOperationException("The list is empty.");
             }
@@ -123,11 +125,34 @@
             return this.tail.Element;
         }
 
+        public void Clear()
+        {
+            this.SetHeadAndTail(null);
+
+            this.Count = 0;
+        }
+
+        public T[] ToArray()
+        {
+            var result = new T[this.Count];
+            var current = this.head;
+            var index = 0;
+
+            while (current is not null)
+            {
+                result[index] = current.Element;
+                current = current.Next;
+                index++;
+            }
+
+            return result;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             var current = this.head;
 
-            while (current != null)
+            while (current is not null)
             {
                 yield return current.Element;
                 current = current.Next;
@@ -135,5 +160,11 @@
         }
 
         IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+
+        private void SetHeadAndTail(Node? node = null)
+        {
+            this.head = node;
+            this.tail = node;
+        }
     }
 }
