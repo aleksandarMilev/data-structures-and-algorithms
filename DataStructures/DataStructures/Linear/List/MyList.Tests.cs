@@ -4,14 +4,17 @@
     using FluentAssertions;
     using Xunit;
 
-    public class MyListTest
+    public class MyListTests
     {
+        private readonly MyList<int> list = [ 1, 2, 3 ];
+
         [Fact]
         public void ConstructorShouldInitializeWithDefaultLengthIfParameterIsNotPassed()
         {
-            var list = new MyList<int>();
-            list.Count.Should().Be(0);
-            list.Capacity.Should().Be(4);
+            var emptyList = new MyList<int>();
+
+            emptyList.Count.Should().Be(0);
+            emptyList.Capacity.Should().Be(4);
         }
 
         [Theory]
@@ -21,112 +24,94 @@
         public void Constructor_ShouldThrowArgumentException_WhenLengthIsZeroOrNegative(int length)
         {
             var constructor = () => new MyList<int>(length);
+
             constructor.Should().Throw<ArgumentException>();
         }
 
         [Fact]
-        public void IndexerGetterShouldReturnCorrectElement()
-        {
-            var list = new MyList<int> { 1, 2, 3 };
-            list[1].Should().Be(2);
-        }
+        public void IndexerGetterShouldReturnCorrectElement() 
+            => this.list[1].Should().Be(2);
 
         [Fact]
         public void IndexerSetterShouldUpdateElement()
         {
-            var list = new MyList<int> { 1, 2, 3 };
-            list[1] = 5;
-            list[1].Should().Be(5);
+            this.list[1] = 5;
+
+            this.list[1].Should().Be(5);
         }
 
         [Fact]
         public void AddShouldIncreaseCount()
         {
-            var list = new MyList<int>();
-            list.Add(1);
-            list.Count.Should().Be(1);
+            this.list.Add(4);
+            this.list.Count.Should().Be(4);
         }
 
         [Theory]
         [InlineData(1)]
         [InlineData(2)]
         [InlineData(3)]
-        public void ContainsShouldReturnTrueIfItemExists(int element)
-        {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.Contains(element).Should().BeTrue();
-        }
+        public void ContainsShouldReturnTrueIfItemExists(int element) 
+            => this.list.Contains(element).Should().BeTrue();
 
         [Theory]
         [InlineData(0)]
         [InlineData(4)]
         [InlineData(42142421)]
-        public void ContainsShouldReturnFalseIfItemDoesNotExist(int element)
-        {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.Contains(element).Should().BeFalse();
-        }
+        public void ContainsShouldReturnFalseIfItemDoesNotExist(int element) 
+            => this.list.Contains(element).Should().BeFalse();
 
         [Fact]
-        public void IndexOfShouldReturnCorrectIndex()
-        {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.IndexOf(2).Should().Be(1);
-        }
+        public void IndexOfShouldReturnCorrectIndex() 
+            => this.list.IndexOf(2).Should().Be(1);
 
         [Fact]
-        public void IndexOfShouldReturnMinusOneIfItemDoesNotExist()
-        {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.IndexOf(4).Should().Be(-1);
-        }
+        public void IndexOfShouldReturnMinusOneIfItemDoesNotExist() 
+            => this.list.IndexOf(4).Should().Be(-1);
 
         [Fact]
         public void InsertShouldAddElementAtCorrectPosition()
         {
-            var list = new MyList<int> { 1, 3 };
-            list.Insert(1, 2);
-            list[1].Should().Be(2);
+            this.list.Insert(1, 2);
+
+            this.list[1].Should().Be(2);
         }
 
         [Fact]
         public void RemoveShouldReturnTrueIfItemExists()
         {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.Remove(2).Should().BeTrue();
-            list.Contains(2).Should().BeFalse();
+            this.list.Remove(2).Should().BeTrue();
+
+            this.list.Contains(2).Should().BeFalse();
         }
 
         [Fact]
-        public void RemoveShouldReturnFalseIfItemDoesNotExist()
-        {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.Remove(4).Should().BeFalse();
-        }
+        public void RemoveShouldReturnFalseIfItemDoesNotExist() 
+            => this.list.Remove(4).Should().BeFalse();
 
         [Fact]
         public void RemoveAtShouldRemoveElementAtCorrectPosition()
         {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.RemoveAt(1);
-            list.Contains(2).Should().BeFalse();
+            this.list.RemoveAt(1);
+
+            this.list.Contains(2).Should().BeFalse();
         }
 
         [Fact]
         public void ToArrayShouldReturnArrayWithCorrectElements()
         {
-            var list = new MyList<int> { 1, 2, 3 };
-            var array = list.ToArray();
+            var array = this.list.ToArray();
+
             array.Should().Equal([ 1, 2, 3 ]);
         }
 
         [Fact]
         public void ClearShouldResetList()
         {
-            var list = new MyList<int> { 1, 2, 3 };
-            list.Clear();
-            list.Count.Should().Be(0);
-            list.Capacity.Should().Be(4);
+            this.list.Clear();
+
+            this.list.Count.Should().Be(0);
+            this.list.Capacity.Should().Be(4);
         }
     }
 }

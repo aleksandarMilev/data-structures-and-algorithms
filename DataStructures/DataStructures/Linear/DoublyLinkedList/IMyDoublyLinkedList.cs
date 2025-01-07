@@ -17,5 +17,9 @@
         T RemoveFirst();
 
         T RemoveLast();
+
+        void Clear();
+
+        T[] ToArray();
     }
 }
