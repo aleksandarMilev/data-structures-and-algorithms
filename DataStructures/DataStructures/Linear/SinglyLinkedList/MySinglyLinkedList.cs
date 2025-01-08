@@ -22,8 +22,10 @@
         private Node? head;
         private Node? tail;
 
+        /// <inheritdoc/>
         public int Count { get; private set; }
 
+        /// <inheritdoc/>
         public void AddFirst(T element)
         {
             var newNode = new Node(element);
@@ -39,6 +41,7 @@
             this.head = newNode;
         }
 
+        /// <inheritdoc/>
         public void AddLast(T element)
         {
             var newNode = new Node(element);
@@ -54,6 +57,7 @@
             this.tail = newNode;
         }
 
+        /// <inheritdoc/>
         public T RemoveFirst()
         {
             if (this.head is null)
@@ -73,6 +77,7 @@
             return returnValue;
         }
 
+        /// <inheritdoc/>
         public T RemoveLast()
         {
             if (this.head is null)
@@ -105,6 +110,7 @@
             return returnValue;
         }
 
+        /// <inheritdoc/>
         public T GetFirst()
         {
             if (this.head is null)
@@ -115,6 +121,7 @@
             return this.head.Element;
         }
 
+        /// <inheritdoc/>
         public T GetLast()
         {
             if (this.tail is null)
@@ -125,6 +132,7 @@
             return this.tail.Element;
         }
 
+        /// <inheritdoc/>
         public void Clear()
         {
             this.SetHeadAndTail(null);
@@ -132,6 +140,7 @@
             this.Count = 0;
         }
 
+        /// <inheritdoc/>
         public T[] ToArray()
         {
             var result = new T[this.Count];

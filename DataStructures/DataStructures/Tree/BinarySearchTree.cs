@@ -8,69 +8,70 @@
     {
         private TreeNode<T>? root;
 
-        public void Insert(T value) => this.root = this.InsertRec(this.root, value);
+        public void Insert(T value) => this.root = Insert(this.root, value);
 
-        private TreeNode<T>? InsertRec(TreeNode<T>? node, T value)
+        public void InOrderDFS(Action<T> action) => InOrderDFS(this.root, action);
+
+        public void PreOrderDFS(Action<T> action) => PreOrderDFS(this.root, action);
+
+        public void PostOrderDFS(Action<T> action) => PostOrderDFS(this.root, action);
+
+        public void BFS(Action<T> action) => BFS(this.root, action);
+
+        private static TreeNode<T>? Insert(TreeNode<T>? node, T value)
         {
-            if (node == null)
+            if (node is null)
             {
                 node = new TreeNode<T>(value);
+
                 return node;
             }
 
             if (value.CompareTo(node.Value) < 0)
             {
-                node.Left = this.InsertRec(node.Left, value);
+                node.Left = Insert(node.Left, value);
             }
             else if (value.CompareTo(node.Value) > 0)
             {
-                node.Right = this.InsertRec(node.Right, value);
+                node.Right = Insert(node.Right, value);
             }
 
             return node;
         }
 
-        public void InOrderDFS(Action<T> action) => this.InOrderDFS(this.root, action);
-
-        private void InOrderDFS(TreeNode<T>? node, Action<T> act)
+        private static void InOrderDFS(TreeNode<T>? node, Action<T> act)
         {
-            if (node != null)
+            if (node is not null)
             {
-                this.InOrderDFS(node.Left, act);
+                InOrderDFS(node.Left, act);
                 act(node.Value);
-                this.InOrderDFS(node.Right, act);
+                InOrderDFS(node.Right, act);
             }
         }
 
-        public void PreOrderDFS(Action<T> action) => this.PreOrderDFS(this.root, action);
-
-        private void PreOrderDFS(TreeNode<T>? node, Action<T> act)
+        private static void PreOrderDFS(TreeNode<T>? node, Action<T> act)
         {
-            if (node != null)
+            if (node is not null)
             {
                 act(node.Value);
-                this.PreOrderDFS(node.Left, act);
-                this.PreOrderDFS(node.Right, act);
+                PreOrderDFS(node.Left, act);
+                PreOrderDFS(node.Right, act);
             }
         }
 
-        public void PostOrderDFS(Action<T> action) => this.PostOrderDFS(this.root, action);
-
-        private void PostOrderDFS(TreeNode<T>? node, Action<T> act)
+        private static void PostOrderDFS(TreeNode<T>? node, Action<T> act)
         {
-            if (node != null)
+            if (node is not null)
             {
-                this.PostOrderDFS(node.Left, act);
-                this.PostOrderDFS(node.Right, act);
+                PostOrderDFS(node.Left, act);
+                PostOrderDFS(node.Right, act);
                 act(node.Value);
             }
         }
 
-        public void BFS(Action<T> action) => this.BFS(this.root, action);
-
-        private void BFS(TreeNode<T>? node, Action<T> act)
+        private static void BFS(TreeNode<T>? node, Action<T> action)
         {
-            if (node == null)
+            if (node is null)
             {
                 return;
             }
@@ -81,14 +82,14 @@
             while (nodes.Count > 0)
             {
                 var current = nodes.Dequeue();
-                act(current.Value);
+                action(current.Value);
 
-                if (current.Left != null)
+                if (current.Left is not null)
                 {
                     nodes.Enqueue(current.Left);
                 }
 
-                if (current.Right != null)
+                if (current.Right is not null)
                 {
                     nodes.Enqueue(current.Right);
                 }

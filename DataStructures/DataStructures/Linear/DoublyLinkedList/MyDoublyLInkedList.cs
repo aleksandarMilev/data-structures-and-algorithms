@@ -4,6 +4,10 @@
     using System.Collections;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Represents a doubly linked list.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
     public class MyDoublyLinkedList<T> : IMyDoublyLinkedList<T>
     {
         private class Node
@@ -20,8 +24,10 @@
         private Node? head;
         private Node? tail;
 
+        /// <inheritdoc/>
         public int Count { get; private set; }
 
+        /// <inheritdoc/>
         public void AddFirst(T element)
         {
             var node = new Node(element);
@@ -40,6 +46,7 @@
             this.Count++;
         }
 
+        /// <inheritdoc/>
         public void AddLast(T element)
         {
             var node = new Node(element);
@@ -58,6 +65,7 @@
             Count++;
         }
 
+        /// <inheritdoc/>
         public T GetFirst()
         {
             if (this.head is null)
@@ -68,6 +76,7 @@
             return this.head.Element;
         }
 
+        /// <inheritdoc/>
         public T GetLast()
         {
             if (this.tail is null)
@@ -78,6 +87,7 @@
             return this.tail.Element;
         }
 
+        /// <inheritdoc/>
         public T RemoveFirst()
         {
             if (this.head is null)
@@ -101,6 +111,7 @@
             return returnValue;
         }
 
+        /// <inheritdoc/>
         public T RemoveLast()
         {
             if (this.tail is null)
@@ -124,12 +135,14 @@
             return returnValue;
         }
 
+        /// <inheritdoc/>
         public void Clear()
         {
             this.SetHeadAndTail(null);
             this.Count = 0;
         }
 
+        /// <inheritdoc/>
         public T[] ToArray()
         {
             var result = new T[this.Count];
