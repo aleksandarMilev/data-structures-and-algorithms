@@ -1,5 +1,7 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Tree
-{ 
+{
+    using System;
+
     public class TreeNode<T>
     {
         public TreeNode(T value) => this.Value = value;

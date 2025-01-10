@@ -12,8 +12,9 @@
             this.Value = value;
         }
 
-        public TKey Key { get; set; }
-        public TValue Value { get; set; }
+        public TKey Key { get; }
+
+        public TValue Value { get; internal set; }
 
         public override bool Equals(object? obj)
         {
@@ -28,7 +29,8 @@
             return false;
         }
 
-        public override int GetHashCode() => HashCode.Combine(this.Key.GetHashCode(), this.Value.GetHashCode());
+        public override int GetHashCode() 
+            => HashCode.Combine(this.Key.GetHashCode(), this.Value.GetHashCode());
 
         public override string ToString() => $"[{this.Key} -> {this.Value}]";
     }

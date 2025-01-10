@@ -14,7 +14,7 @@
 
         public MyCircularQueue(int capacity = DefaultCapacity) => this.elements = new T[capacity];
 
-        public int Count { get; private set; } = 0;
+        public int Count { get; private set; }
 
         public void Enqueue(T element)
         {
@@ -67,11 +67,18 @@
             return result;
         }
 
+        public void Clear()
+        {
+            this.elements = new T[DefaultCapacity];
+            this.Count = 0;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < this.Count; i++)
             {
                 var currentIndex = (this.startIndex + i) % this.elements.Length;
+
                 yield return this.elements[currentIndex];
             }
         }

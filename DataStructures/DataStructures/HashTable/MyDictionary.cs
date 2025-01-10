@@ -14,7 +14,8 @@
 
         private LinkedList<KeyValue<TKey, TValue>>[] elements;
 
-        public MyDictionary(int capacity = DefaultCapacity) => this.elements = new LinkedList<KeyValue<TKey, TValue>>[capacity];
+        public MyDictionary(int capacity = DefaultCapacity) 
+            => this.elements = new LinkedList<KeyValue<TKey, TValue>>[capacity];
 
         public TValue this[TKey key]
         {

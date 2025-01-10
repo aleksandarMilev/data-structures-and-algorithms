@@ -39,33 +39,33 @@
             return node;
         }
 
-        private static void InOrderDFS(TreeNode<T>? node, Action<T> act)
+        private static void InOrderDFS(TreeNode<T>? node, Action<T> action)
         {
             if (node is not null)
             {
-                InOrderDFS(node.Left, act);
-                act(node.Value);
-                InOrderDFS(node.Right, act);
+                InOrderDFS(node.Left, action);
+                action(node.Value);
+                InOrderDFS(node.Right, action);
             }
         }
 
-        private static void PreOrderDFS(TreeNode<T>? node, Action<T> act)
+        private static void PreOrderDFS(TreeNode<T>? node, Action<T> action)
         {
             if (node is not null)
             {
-                act(node.Value);
-                PreOrderDFS(node.Left, act);
-                PreOrderDFS(node.Right, act);
+                action(node.Value);
+                PreOrderDFS(node.Left, action);
+                PreOrderDFS(node.Right, action);
             }
         }
 
-        private static void PostOrderDFS(TreeNode<T>? node, Action<T> act)
+        private static void PostOrderDFS(TreeNode<T>? node, Action<T> action)
         {
             if (node is not null)
             {
-                PostOrderDFS(node.Left, act);
-                PostOrderDFS(node.Right, act);
-                act(node.Value);
+                PostOrderDFS(node.Left, action);
+                PostOrderDFS(node.Right, action);
+                action(node.Value);
             }
         }
 

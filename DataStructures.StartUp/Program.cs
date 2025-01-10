@@ -1,7 +1,12 @@
 ﻿namespace DataStructuresAndAlgorithms.StartUp
 {
+    using Problems.Array;
+
     internal class Program
     {
-        private static void Main() { }
+        private static void Main() 
+        {
+            FindPairWithGivenSumInAnArray.Solve();
+        }
     }
 }
