@@ -6,7 +6,8 @@
     {
         private static void Main() 
         {
-            FindPairWithGivenSumInAnArray.Solve();
+            //FindPairWithGivenSumInAnArray.Solve();
+            CheckIfASubarrayWithZeroSumExistsOrNot.Solve();
         }
     }
 }
