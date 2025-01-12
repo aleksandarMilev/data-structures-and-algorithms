@@ -10,10 +10,10 @@
         //should not be used on: large datasets
         public static void BubbleSort(this int[] arr)
         {
-            bool swapped;
+            var swapped = false;
+
             for (int i = 0; i < arr.Length; i++)
             {
-                swapped = false;
                 for (int j = 0; j < arr.Length - i - 1; j++)
                 {
                     if (arr[j].CompareTo(arr[j + 1]) > 0)
@@ -37,6 +37,7 @@
             for (int i = 0; i < arr.Length; i++)
             {
                 var indexOfMinElement = i;
+
                 for (int j = i + 1; j < arr.Length; j++)
                 {
                     if (arr[j].CompareTo(arr[indexOfMinElement]) < 0)

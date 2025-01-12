@@ -18,11 +18,5 @@
 
             return false;
         }
-
-        public static bool SearchBinary<T>(this IEnumerable<T> collection, T element)
-            where T : IComparable
-        {
-            return false;
-        }
     }
 }

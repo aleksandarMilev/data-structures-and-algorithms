@@ -7,7 +7,8 @@
         private static void Main() 
         {
             //FindPairWithGivenSumInAnArray.Solve();
-            CheckIfASubarrayWithZeroSumExistsOrNot.Solve();
+            //CheckIfASubarrayWithZeroSumExistsOrNot.Solve();
+            SortBinaryArrayInLinearTime.Solve();
         }
     }
 }
