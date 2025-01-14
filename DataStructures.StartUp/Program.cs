@@ -8,7 +8,8 @@
         {
             //FindPairWithGivenSumInAnArray.Solve();
             //CheckIfASubarrayWithZeroSumExistsOrNot.Solve();
-            SortBinaryArrayInLinearTime.Solve();
+            //SortBinaryArrayInLinearTime.Solve();
+            FindTheDuplicateElementInALimitedRangeArray.Solve();
         }
     }
 }
