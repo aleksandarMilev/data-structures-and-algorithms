@@ -9,7 +9,8 @@
             //FindPairWithGivenSumInAnArray.Solve();
             //CheckIfASubarrayWithZeroSumExistsOrNot.Solve();
             //SortBinaryArrayInLinearTime.Solve();
-            FindTheDuplicateElementInALimitedRangeArray.Solve();
+            //FindTheDuplicateElementInALimitedRangeArray.Solve();
+            FindTheLargestSubarrayFormedByConsecutiveIntegers.Solve();
         }
     }
 }
