@@ -10,7 +10,8 @@
             //CheckIfASubarrayWithZeroSumExistsOrNot.Solve();
             //SortBinaryArrayInLinearTime.Solve();
             //FindTheDuplicateElementInALimitedRangeArray.Solve();
-            FindTheLargestSubarrayFormedByConsecutiveIntegers.Solve();
+            //FindTheLargestSubarrayFormedByConsecutiveIntegers.Solve();
+            FindTheMaximumProductOfTwoIntegersInAnArray.Solve();
         }
     }
 }
