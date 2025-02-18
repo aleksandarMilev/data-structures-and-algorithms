@@ -1,8 +1,8 @@
 ﻿namespace DataStructuresAndAlgorithms.DataStructures.Linear.DoublyLinkedList
 {
     using System;
-    using Xunit;
     using FluentAssertions;
+    using Xunit;
 
     public class MyDoublyLinkedListTests
     {
