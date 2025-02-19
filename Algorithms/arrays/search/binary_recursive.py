@@ -13,3 +13,4 @@ def binary_recursive(arr, first, last, target):
         return binary_recursive(arr, first, middle - 1, target)
     else:
         return binary_recursive(arr, middle + 1, last, target)
+    
