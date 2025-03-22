@@ -32,4 +32,5 @@ def solve(num):
         
     return num == reverted or num == reverted // 10
 
-print(solve(121))
+print(solve(121)) #True
+print(solve(122)) #False
