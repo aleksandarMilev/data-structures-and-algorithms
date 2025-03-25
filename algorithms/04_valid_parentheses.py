@@ -45,7 +45,7 @@ def solve(parantheses):
             if not seen or seen.pop() != close_to_open[p]:
                 return False
         else:
-            raise ValueError("Invalid output!")
+            raise ValueError("Invalid input!")
         
     return not seen 
             
